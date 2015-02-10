@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en-US" class="no-js ie ie6 lte7 lte8 lte9"><![endif]-->
+<!--[if IE 7 ]><html lang="en-US" class="no-js ie ie7 lte7 lte8 lte9"><![endif]-->
+<!--[if IE 8 ]><html lang="en-US" class="no-js ie ie8 lte8 lte9"><![endif]-->
+<!--[if IE 9 ]><html lang="en-US" class="no-js ie ie9 lte9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en-US" class="no-js"><!--<![endif]-->
+<head>
+<title>Secret Codes</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1" />
+<script src="SecretCode.js"></script>
+<script src="SecretCodeManager.js"></script>
+<script>
+var manager = new SecretCodeManager();
+
+manager.add( "KONAMI", function( code, manager ) {
+    console.log( code, manager );
+} );
+
+manager.add( "esc esc esc esc", function( code, manager ) {
+    console.log("Okay, I'll stop listening for secret codes!");
+    manager.stopListening();
+} );
+</script>
+</head>
+<body>
+
+
+
+</body>
+</html>
