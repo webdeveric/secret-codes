@@ -3,7 +3,6 @@
 
     if ( !Number.isInteger ) {
         Number.isInteger = function( val ) {
-            "use strict";
             return typeof val === "number" &&
                 isFinite( val ) &&
                 val > -9007199254740992 &&
@@ -140,7 +139,7 @@
 
     SecretCode.prototype.run = function()
     {
-       return this.callback.apply( this.callback, arguments );
+        return this.callback.apply( this.callback, arguments );
     };
 
     SecretCode.prototype.check = function( buffer )
@@ -165,18 +164,18 @@
     SecretCode.prototype.valueOf = function()
     {
         return this.code;
-    }
+    };
 
     SecretCode.prototype.toString = function()
     {
         return this.code.map( function( charCode ) {
             return String.fromCharCode( charCode );
         }).join("");
-    }
+    };
 
-    if( typeof define === "function" && define.amd ) {
+    if ( typeof define === "function" && define.amd ) {
 
-        define( [], function () {
+        define( [], function() {
             return SecretCode;
         });
 
