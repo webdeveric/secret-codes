@@ -162,6 +162,18 @@
         return false;
     };
 
+    SecretCode.prototype.valueOf = function()
+    {
+        return this.code;
+    }
+
+    SecretCode.prototype.toString = function()
+    {
+        return this.code.map( function( charCode ) {
+            return String.fromCharCode( charCode );
+        }).join("");
+    }
+
     if( typeof define === "function" && define.amd ) {
 
         define( [], function () {
