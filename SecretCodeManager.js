@@ -1,4 +1,25 @@
-(function( window, document ) {
+(function( root, name, factory ) {
+    "use strict";
+
+    if ( typeof define === "function" && define.amd ) {
+
+        define( [ "SecretCode" ], factory );
+
+    } else if ( typeof module !== "undefined" && module.exports ) {
+
+        module.exports = factory( require("SecretCode") );
+
+    } else {
+
+        if ( root.SecretCode !== void 0 ) {
+            root[ name ] = factory( root.SecretCode );
+        } else {
+            console.warn("Please load SecretCode first.");
+        }
+
+    }
+
+}( this, "SecretCodeManager", function( SecretCode ) {
     "use strict";
 
     function SecretCodeManager()
@@ -32,9 +53,15 @@
     {
         // This prevents find as you type in Firefox.
         if ( e.type === "keydown" && !e.metaKey && !e.ctrlKey && !e.altKey && !e.shiftKey ) {
-            e.preventDefault();
-            e.stopPropagation();
-            return;
+
+            var tag = e.target.tagName;
+
+            if ( tag === "HTML" || tag === "BODY" ) {
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+
         }
 
         if ( this.codes.length ) {
@@ -123,20 +150,6 @@
         return this.maxCodeLength;
     };
 
-    if( typeof define === "function" && define.amd ) {
+    return SecretCodeManager;
 
-        define( [ "SecretCode" ], function () {
-            return SecretCodeManager;
-        });
-
-    } else if ( typeof module !== "undefined" && module.exports ) {
-
-        module.exports = SecretCodeManager;
-
-    } else {
-
-        window.SecretCodeManager = SecretCodeManager;
-
-    }
-
-}( window, document ));
+} ) );
