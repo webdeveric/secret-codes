@@ -31,15 +31,13 @@
     SecretCodeManager.prototype.handleEvent = function( e )
     {
         // This prevents find as you type in Firefox.
-        if ( e.type === "keydown" ) {
+        if ( e.type === "keydown" && !e.metaKey && !e.ctrlKey && !e.altKey && !e.shiftKey ) {
             e.preventDefault();
             e.stopPropagation();
             return;
         }
 
         if ( this.codes.length ) {
-
-            console.log( e.which );
 
             this.buffer.push( e.which );
 
