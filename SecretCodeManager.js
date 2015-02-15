@@ -51,31 +51,33 @@
 
     SecretCodeManager.prototype.handleEvent = function( e )
     {
-        // This prevents find as you type in Firefox.
+        /*
+            This prevents find as you type in Firefox.
+            Only prevent default behavior for letters A-Z.
+            I want keys like page up/down to still work.
+        */
         if ( e.type === "keydown" && !e.metaKey && !e.ctrlKey && !e.altKey && !e.shiftKey ) {
 
-            var tag = e.target.tagName;
+            var tag = e.target.tagName,
+                keyCode = e.which;
 
-            if ( tag === "HTML" || tag === "BODY" ) {
+            if ( ( tag === "HTML" || tag === "BODY" ) && keyCode >= 65 && keyCode <= 90 ) {
                 e.preventDefault();
-                e.stopPropagation();
                 return;
             }
-
         }
 
-        if ( this.codes.length ) {
-
-            this.buffer.push( e.which );
+        if ( e.type === "keyup" && this.codes.length > 0 ) {
 
             var self = this;
+
+            this.buffer.push( e.which );
 
             clearTimeout( this.timer );
 
             this.timer = setTimeout( function() {
                 self.checkBuffer();
             }, this.delay );
-
         }
     };
 
