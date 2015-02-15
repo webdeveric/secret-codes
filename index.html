@@ -5,10 +5,69 @@
 <!--[if IE 9 ]><html lang="en-US" class="no-js ie ie9 lte9"><![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html lang="en-US" class="no-js"><!--<![endif]-->
 <head>
-<title>Secret Codes</title>
+<title>Secret Codes Demo</title>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1" />
+<style>
+html{
+    background: #FA5E5B;
+    color: #FFF;
+    font: 400 1vmax/1.5 "Open Sans", sans-serif;
+    transition: all ease-in-out 500ms;
+}
+
+html.konami {
+    background: #16C98D;
+    font-size: 2vmax;
+    text-shadow: 2px 2px 2px rgba(0,0,0,.2);
+}
+
+#stopped-listening-message{
+    display: none;
+}
+
+.stopped-listening #stopped-listening-message{
+    display: block;
+}
+
+p{
+    margin: 1em auto;
+}
+
+p:first-child{
+    margin-top: 0;
+}
+
+p:last-child{
+    margin-bottom: 0;
+}
+
+section{
+    width: 75vw;
+    margin: 0 auto;
+}
+
+aside{
+    background: rgba(255,255,255,.9);
+    color: #333;
+    padding: 1vmin 2vmax;
+    border-radius: 1vh;
+    text-align: center;
+    font-weight: 900;
+    margin: 1em auto;
+}
+
+#stopped-listening-message{
+    background: rgba(0,0,0,.1);
+    color: #FFF;
+    padding: 2vmax;
+    border-radius: 1vh;
+    font-weight: 900;
+    text-align: center;
+}
+
+</style>
 <script src="SecretCode.js"></script>
 <script src="SecretCodeManager.js"></script>
 <script>
@@ -16,17 +75,52 @@ var manager = new SecretCodeManager();
 
 manager.add( "KONAMI", function( code, manager ) {
     console.log( code, manager );
+    document.documentElement.classList.toggle("konami");
 } );
 
 manager.add( "esc esc esc esc", function( code, manager ) {
     console.log("Okay, I'll stop listening for secret codes!");
     manager.stopListening();
+    document.documentElement.classList.add("stopped-listening");
 } );
 </script>
 </head>
 <body>
 
+<section>
+    <header>
+        <h1>Secret code demo</h1>
+        <div id="stopped-listening-message">
+            <p>
+                You have stopped listening for secret codes.
+            </p>
+        </div>
+    </header>
+    <aside>
+        <p>
+            Enter the Konami code using your keyboard.
+        </p>
+        <p>
+            <code>up up down down left right left right b a</code>
+        </p>
+        <p>
+            You can press ESC four times to stop listening for secret codes.
+        </p>
+    </aside>
+    <article>
+        <p>Egestas a potenti condimentum feugiat quis curabitur tempor convallis natoque nunc blandit porttitor scelerisque natoque a orci a nascetur a montes malesuada lacinia semper vitae fringilla. Ac sociosqu a commodo accumsan vel a mi parturient diam vel vestibulum suscipit curabitur et nam a ipsum a at a ad per est mauris non vestibulum a. Arcu parturient magnis hac ad vestibulum tempor magnis condimentum per vehicula massa aliquet sociis interdum luctus blandit. Arcu neque parturient adipiscing gravida scelerisque vel hac hendrerit vestibulum magnis mi aliquam elit elementum curabitur turpis non aliquam.</p>
+        <p>A est ut risus vestibulum per ultrices sit mi a elementum at donec phasellus nisl. Ridiculus a aliquam at dignissim ut vestibulum ipsum mus adipiscing scelerisque parturient pretium in a vestibulum nostra arcu himenaeos senectus. Velit semper ullamcorper aptent ultricies lacus condimentum ultrices a eget odio bibendum libero inceptos parturient nam venenatis vestibulum adipiscing eleifend id praesent aptent dolor suspendisse sem montes. Integer phasellus feugiat parturient sit a a in a himenaeos viverra maecenas donec consectetur a ipsum. Hendrerit habitasse vestibulum non nulla parturient non ac a felis adipiscing himenaeos euismod mollis cum parturient consectetur a fringilla varius nisi viverra.</p>
+        <p>Elit lacus suspendisse interdum rutrum suspendisse nunc accumsan venenatis netus scelerisque parturient sed ad a potenti ut parturient odio odio a natoque a suscipit enim nisi curae in. Pretium pretium pretium vestibulum habitasse nostra interdum duis a sed at inceptos eget orci vestibulum potenti dui. Interdum pulvinar condimentum consectetur suspendisse consectetur convallis adipiscing himenaeos sapien faucibus a adipiscing sem a consectetur.</p>
+        <p>Natoque senectus a a vitae sem facilisis risus a tristique cras adipiscing suscipit scelerisque vestibulum nisi eget suspendisse inceptos. Vehicula a habitasse a scelerisque risus ullamcorper varius habitasse mauris nibh nisi amet et quam lectus est euismod vivamus erat metus est vehicula. Ridiculus integer leo nec praesent lobortis eu vestibulum nullam suspendisse sociis vitae mauris egestas adipiscing egestas sem montes adipiscing phasellus facilisis. Vestibulum neque adipiscing orci id elementum parturient malesuada curabitur nostra suspendisse feugiat magna justo class venenatis porta vestibulum ut parturient a nisl eu litora lacinia leo vivamus. Ad a at suspendisse consectetur posuere per vel condimentum scelerisque scelerisque et hac facilisi id etiam scelerisque sapien pulvinar euismod posuere litora parturient euismod parturient curabitur mattis a. Imperdiet congue venenatis laoreet penatibus lobortis leo mi ligula ridiculus vestibulum ullamcorper eros elementum ornare litora sit id at suspendisse himenaeos elementum netus platea a inceptos.</p>
+        <p>Ullamcorper magna mi vestibulum auctor ad pharetra molestie elementum pharetra bibendum a bibendum imperdiet etiam scelerisque tincidunt velit velit a per vestibulum fringilla pharetra consectetur semper. Pharetra id non leo torquent eros laoreet fusce nibh parturient mollis ipsum parturient vivamus est ut. Eleifend integer lacinia mattis himenaeos bibendum scelerisque id in scelerisque pulvinar phasellus sagittis a iaculis quam nisl ipsum felis in quam accumsan consectetur facilisis dictumst felis a. Facilisis parturient ridiculus magna luctus a molestie dignissim ad nunc augue diam at porttitor consectetur a a vestibulum penatibus eleifend sed feugiat torquent a libero a ligula. Pulvinar vitae ullamcorper quisque non parturient in ridiculus dis dis senectus per a parturient sodales nulla ultricies vitae etiam. Fames leo vestibulum diam netus a a per a ac praesent tristique nisl scelerisque parturient ad fames enim platea.</p>
+        <p>Adipiscing vestibulum pulvinar sagittis cubilia vehicula accumsan sem porttitor ultricies volutpat parturient lacus a a habitant condimentum nec ad condimentum. Tincidunt parturient ad nisl dui dis scelerisque in a dolor integer himenaeos volutpat dis a accumsan nisl scelerisque parturient aenean. Tellus facilisis parturient odio a hendrerit suspendisse a semper nam posuere taciti morbi at odio parturient adipiscing libero arcu proin dolor curabitur a ut.</p>
+        <p>Proin id nam adipiscing sapien nisl lobortis a vestibulum consectetur ullamcorper ad fusce orci a porta erat tempus condimentum scelerisque id sagittis condimentum pretium a nisl fermentum ad. Dictumst a a parturient tristique proin vestibulum eget urna morbi bibendum erat potenti a condimentum morbi senectus eleifend in cras dis lacinia pretium potenti parturient urna parturient. Vestibulum elementum fringilla cubilia ac at ullamcorper praesent vel nibh suspendisse scelerisque vestibulum vestibulum scelerisque habitant cum dictumst hendrerit mattis scelerisque euismod erat a duis. Condimentum adipiscing justo pretium curae arcu a vulputate facilisi montes eget egestas torquent maecenas et a parturient non adipiscing fusce vestibulum odio a adipiscing inceptos quam sociis. Vestibulum tristique risus facilisis est a pulvinar est adipiscing iaculis a a fames placerat vestibulum rutrum scelerisque parturient at a a vestibulum vestibulum nullam tristique luctus. Luctus suspendisse ad nec sociosqu ullamcorper tellus mollis habitasse a parturient risus ad elit parturient parturient non facilisi himenaeos pulvinar.</p>
+        <p>Maecenas senectus adipiscing hac adipiscing sodales nec ac facilisis felis parturient nam a praesent consectetur eget ultricies id nunc litora scelerisque sem ac vivamus interdum et. A ullamcorper nisl a sapien lobortis morbi consectetur praesent commodo sed ut parturient praesent ac a orci habitant rutrum adipiscing duis. Parturient maecenas vulputate potenti vestibulum malesuada ligula commodo tempor suscipit donec magna morbi lacinia praesent porta in sapien mi dignissim sociosqu blandit. Suscipit scelerisque tincidunt nec bibendum pretium enim non a mi donec cum et est urna tristique fringilla suspendisse maecenas curabitur. Blandit a penatibus leo at suspendisse eu purus urna lectus a arcu dui hendrerit accumsan hendrerit sodales non sem sociis.</p>
+        <p>Vulputate orci platea curae a id ac lorem senectus parturient a arcu dui vestibulum tempus sodales. Tempor inceptos aliquam scelerisque laoreet cras mi tellus ultrices suspendisse vestibulum parturient adipiscing ultrices placerat interdum consectetur eu tristique a magnis mi bibendum elit cras a. Parturient elit ut enim mus et a convallis lacinia a at conubia etiam sem a eu cras sed cum fusce eu dis ac pulvinar id scelerisque inceptos mauris ornare.</p>
+        <p>At suspendisse in consequat posuere mi scelerisque et malesuada habitasse vel blandit purus a parturient mi venenatis id condimentum lacus justo. Cras ullamcorper ullamcorper adipiscing dui porttitor nec penatibus litora inceptos dapibus ante eu id sem ac feugiat ridiculus a magnis quis nec eros. Et venenatis adipiscing eget suspendisse pulvinar consectetur fermentum vestibulum amet dignissim scelerisque sociosqu suspendisse scelerisque erat viverra consectetur accumsan elit porta dapibus varius a praesent tempor urna donec.</p>
+    </article>
 
+</section>
 
 </body>
 </html>
