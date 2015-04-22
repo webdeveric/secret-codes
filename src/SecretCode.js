@@ -30,14 +30,12 @@
 
     if ( !Array.isArray ) {
         Array.isArray = function(arg) {
-            "use strict";
             return Object.prototype.toString.call(arg) === "[object Array]";
         };
     }
 
     if ( !String.prototype.trim ) {
         (function() {
-            "use strict";
             // Make sure we trim BOM and NBSP
             var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
             String.prototype.trim = function() {
