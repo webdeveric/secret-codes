@@ -39,6 +39,8 @@
             document.addEventListener( "keydown", this, false );
             document.addEventListener( "keyup", this, false );
         }
+
+        return this;
     };
 
     SecretCodeManager.prototype.stopListening = function()
@@ -47,6 +49,8 @@
             document.removeEventListener( "keydown", this, false );
             document.removeEventListener( "keyup", this, false );
         }
+
+        return this;
     };
 
     SecretCodeManager.prototype.handleEvent = function( e )
@@ -115,6 +119,12 @@
             }
             return c1.size() < c2.size() ? -1 : 1;
         } );
+
+        return this;
+    };
+
+    SecretCodeManager.prototype.konami = function( callback ) {
+        return this.add("KONAMI", callback );
     };
 
     SecretCodeManager.prototype.remove = function( code )
