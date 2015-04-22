@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en-US" class="no-js ie ie6 lte7 lte8 lte9"><![endif]-->
+<!--[if IE 7 ]><html lang="en-US" class="no-js ie ie7 lte7 lte8 lte9"><![endif]-->
+<!--[if IE 8 ]><html lang="en-US" class="no-js ie ie8 lte8 lte9"><![endif]-->
+<!--[if IE 9 ]><html lang="en-US" class="no-js ie ie9 lte9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en-US" class="no-js"><!--<![endif]-->
+<head>
+<title>Secret Codes Demo</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1" />
+<style>
+html{
+    background: #FA5E5B;
+    color: #FFF;
+    font: 400 1vmax/1.5 "Open Sans", sans-serif;
+    transition: all ease-in-out 500ms;
+}
+
+html.konami {
+    background: #16C98D;
+    font-size: 2vmax;
+    text-shadow: 2px 2px 2px rgba(0,0,0,.2);
+}
+
+#stopped-listening-message{
+    display: none;
+}
+
+.stopped-listening #stopped-listening-message{
+    display: block;
+}
+
+p{
+    margin: 1em auto;
+}
+
+p:first-child{
+    margin-top: 0;
+}
+
+p:last-child{
+    margin-bottom: 0;
+}
+
+section{
+    width: 75vw;
+    margin: 0 auto;
+}
+
+article{
+    background: rgba(255,255,255,.9);
+    color: #333;
+    padding: 1vmin 2vmax;
+    border-radius: 1vh;
+    text-align: center;
+    font-weight: 900;
+    margin: 1em auto;
+}
+
+#stopped-listening-message{
+    background: rgba(0,0,0,.1);
+    color: #FFF;
+    padding: 2vmax;
+    border-radius: 1vh;
+    font-weight: 900;
+    text-align: center;
+}
+
+</style>
+<script src="https://cdn.rawgit.com/webdeveric/secret-codes/59bd2b38ec04c82b2d128661832ac2fd0834b2a8/src/SecretCode.js"></script>
+<script src="https://cdn.rawgit.com/webdeveric/secret-codes/59bd2b38ec04c82b2d128661832ac2fd0834b2a8/src/SecretCodeManager.js"></script>
+<script>
+var manager = new SecretCodeManager();
+
+manager.konami( function( code, manager ) {
+    console.log( code, manager );
+    document.documentElement.classList.toggle("konami");
+} ).add( "esc esc esc esc", function( code, manager ) {
+    console.log("Okay, I'll stop listening for secret codes!");
+    manager.stopListening();
+    document.documentElement.classList.add("stopped-listening");
+} );
+</script>
+</head>
+<body>
+
+<section>
+    <header>
+        <h1>Secret code demo</h1>
+        <div id="stopped-listening-message">
+            <p>
+                You have stopped listening for secret codes.
+            </p>
+        </div>
+    </header>
+    <article>
+        <p>
+            Enter the Konami code using your keyboard.
+        </p>
+        <p>
+            <code>up up down down left right left right b a</code>
+        </p>
+        <p>
+            You can press ESC four times to stop listening for secret codes.
+        </p>
+    </article>
+</section>
+
+</body>
+</html>
