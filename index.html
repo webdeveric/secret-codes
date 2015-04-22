@@ -31,6 +31,10 @@ html.konami {
     display: block;
 }
 
+a{
+    color: #FFF;
+}
+
 p{
     margin: 1em auto;
 }
@@ -41,6 +45,10 @@ p:first-child{
 
 p:last-child{
     margin-bottom: 0;
+}
+
+.right{
+    float: right;
 }
 
 section{
@@ -87,7 +95,7 @@ manager.konami( function( code, manager ) {
 
 <section>
     <header>
-        <h1>Secret code demo</h1>
+        <h1>Secret code demo <a class="right" href="https://github.com/webdeveric/secret-codes/">View on Github</a></h1>
         <div id="stopped-listening-message">
             <p>
                 You have stopped listening for secret codes.
