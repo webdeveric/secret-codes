@@ -2,6 +2,8 @@
 
 Really simple easter eggs.
 
+**Demo** http://webdeveric.github.io/secret-codes/
+
 ## Load the scripts
 
 ```html
